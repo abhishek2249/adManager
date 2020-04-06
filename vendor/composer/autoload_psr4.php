@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
+    'InstagramScraper\\' => array($vendorDir . '/raiym/instagram-php-scraper/src/InstagramScraper'),
     'Facebook\\' => array($vendorDir . '/facebook/graph-sdk/src/Facebook'),
     'FacebookAds\\' => array($vendorDir . '/facebook/php-business-sdk/src/FacebookAds'),
 );

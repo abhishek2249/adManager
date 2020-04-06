@@ -25,6 +25,9 @@ $fields = array(
     $params
   )->getResponse()->getContent();
   $campaigns = $response['data'];  
+  $adManagerUrl = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . '/' . basename(__DIR__) . '/campaigns.php';
+  
+  //echo $adManagerUrl;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,6 +65,22 @@ $fields = array(
   <div class="row">
       <div class="col-md-9">
         <h3>Create Campaigns</h3>
+        <?php
+          try {
+            // Returns a `Facebook\FacebookResponse` object
+            $response = $fb->get(
+              '/{page-id}/likes',
+              '{access-token}'
+            );
+          } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+          } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+          }
+          $graphNode = $response->getGraphNode();
+        ?>
         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Create</button>
       </div>
   </div>

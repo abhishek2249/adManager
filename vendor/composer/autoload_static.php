@@ -11,6 +11,14 @@ class ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\SimpleCache\\' => 16,
+        ),
+        'I' => 
+        array (
+            'InstagramScraper\\' => 17,
+        ),
         'F' => 
         array (
             'Facebook\\' => 9,
@@ -19,6 +27,14 @@ class ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\SimpleCache\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/simple-cache/src',
+        ),
+        'InstagramScraper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/raiym/instagram-php-scraper/src/InstagramScraper',
+        ),
         'Facebook\\' => 
         array (
             0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',
@@ -29,11 +45,22 @@ class ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5
         ),
     );
 
+    public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'Unirest\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mashape/unirest-php/src',
+            ),
+        ),
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitfbc5ccf6a0ec39caceecd452173e69a5::$prefixesPsr0;
 
         }, null, ClassLoader::class);
     }
